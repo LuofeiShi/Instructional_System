@@ -13,6 +13,10 @@ public class Student {
   @Column(nullable = false, name="name")
   private String name;
 
+  @ManyToOne
+  @JoinColumn(name="university_class_id")
+  private UniversityClass universityClass;
+
   public Student(Long id, String name) {
     this.id = id;
     this.name = name;
@@ -34,6 +38,14 @@ public class Student {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public UniversityClass getUniversityClass() {
+    return universityClass;
+  }
+
+  public void setUniversityClass(UniversityClass universityClass) {
+    this.universityClass = universityClass;
   }
 
   public String getName() {
